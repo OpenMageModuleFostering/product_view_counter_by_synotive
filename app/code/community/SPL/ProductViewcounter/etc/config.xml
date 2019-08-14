@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * SPL
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category    SPL
+ * @package     SPL_ProductViewcounter
+ * @copyright   Copyright (c) 2015 SPL. 
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+	<modules>
+		<SPL_ProductViewcounter>
+			<version>0.1.0</version>
+		</SPL_ProductViewcounter>
+	</modules>
+	<frontend>  
+                <routers>
+			<productviewcounter>
+				<use>standard</use>
+				<args>
+					<module>SPL_ProductViewcounter</module>
+					<frontName>product_view_counter</frontName>
+				</args>
+			</productviewcounter>
+		</routers>
+		<layout>
+			<updates>
+				<productviewcounter>
+					<file>productviewcounter.xml</file>
+				</productviewcounter>
+			</updates>
+		</layout>
+	</frontend>
+	<global>
+		<helpers>
+			<productviewcounter>
+				<class>SPL_ProductViewcounter_Helper</class>
+			</productviewcounter>
+		</helpers>
+
+		<blocks>
+			<productviewcounter>
+				<class>SPL_ProductViewcounter_Block</class>
+			</productviewcounter>
+		</blocks>
+
+
+	</global>	
+</config> 

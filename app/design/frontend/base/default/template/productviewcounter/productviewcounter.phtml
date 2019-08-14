@@ -1,0 +1,60 @@
+<?php
+/**
+ * SPL
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category    SPL
+ * @package     SPL_ProductViewcounter
+ * @copyright   Copyright (c) 2015 SPL. 
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+
+<?php if (Mage::getStoreConfig('productviewcounter/module_config/enabled') == 1) { ?>
+    <?php $_product           = $this->getProduct(); // addto.phtml  ?>
+    <?php $_wishlistSubmitUrl = $this->helper('wishlist')->getAddUrl($_product); ?>
+    <ul class="add-to-links">
+    <?php if ($this->helper('wishlist')->isAllow()) : ?>
+        <li><a href="<?php echo $_wishlistSubmitUrl ?>" onclick="productAddToCartForm.submitLight(this, this.href); return false;" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
+    <?php endif; ?>
+    <?php $_compareUrl = $this->helper('catalog/product_compare')->getAddUrl($_product); ?>
+    <?php if ($_compareUrl) : ?>
+            <li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
+    <?php endif; ?>
+    </ul>
+    <div style="clear:both;"></div>
+    <?php $fromDate=date('Y-m-d',strtotime("yesterday"));
+    $toDate   = now();
+    $viewedProducts = Mage::getResourceModel('reports/product_collection')->addViewsCount($fromDate, $toDate);
+    foreach($viewedProducts as $product) { 
+        $pid=$product->getData('entity_id');
+        $currentPid=$_product->getId();
+        if($pid==$currentPid){ ?>
+            <div style="top: 25%; left: 10px;" class="vi-notify-cmp" id="vi_notification">
+                <div class="vi-notify-container vi-notify-shadow">
+                        <div class="vi-notify-msg"><?php echo $product->getData('views');?> customer <?php if( $product->getData('views') > 1 ){ echo 'are';}else{ echo 'is'; } ?> viewing this item per day.</div>
+                        <?php /*?><div class="vi-notify-close">
+						<a style="text-decoration: none;" href="javascript:void(0)" class="vi-notify-close-btn" id="vi_notification_cls_btn">x</a>
+						</div><?php */?>
+                        <a href="javascript:void(0)" id="vi_notification_cls_btn" class="vi-notify-close">x</a>
+                </div>
+            </div>
+<?php  }
+    }
+} ?>
+    <script>
+         Event.observe(window, 'load', function() {
+        Event.observe('vi_notification_cls_btn', 'click', function(){
+            Effect.toggle('vi_notification', 'appear', { duration: 1.0 });
+          
+        });
+        //Effect.toggle('vi_notification', 'appear', { duration: 8.0 });
+    });
+
+    </script>

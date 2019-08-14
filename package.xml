@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+    <name>Product_View_Counter_By_Synotive</name>
+    <version>1.1.0</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">OSL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Products View Counter is an awesome way to make your customer engage with your store when stock are low.</summary>
+    <description>Products View Counter is an awesome way to make your customer engage with your store when stock are low.&#xD;
+Product View Counter Extension helps you to increase/zoom your eCommerce store sales. It&#x2019;s a great way to highlight your products. When stock are low or some discount that time It will guide/assist the customers that this product are more viewing by others customers. And customer really want that product that time he/she is thinking less and buy this product.&#xD;
+So Customer don&#x2019;t need to read the review of products after showing the product view counter.&#xD;
+</description>
+    <notes>Products View Counter   is stable version. We have tested it many different version.</notes>
+    <authors><author><name>Synotive Technologies</name><user>Synotive</user><email>magento@synotive.com</email></author></authors>
+    <date>2015-02-12</date>
+    <time>09:57:24</time>
+    <contents><target name="magecommunity"><dir name="SPL"><dir name="ProductViewcounter"><dir name="Block"><file name="ProductViewcounter.php" hash="f19aed88723ddaf2712d93504bcae3c0"/></dir><dir name="Helper"><file name="Data.php" hash="d358758a745e5a828edd1b2077e732f1"/></dir><dir name="controllers"><file name="ProductviewcounterController.php" hash="6cf8846a884a4a92e20161c7bd38c4fa"/></dir><dir name="etc"><file name="adminhtml.xml" hash="a2d3eeaeb6f54d5f1240268f779ddac6"/><file name="config.xml" hash="c5a3807e417b57228a498ed597ad7de6"/><file name="system.xml" hash="03b28ad969c8c3e865645660d8f4448b"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="SPL_ProductViewcounter.xml" hash="a04da76e29f1cb442a6f23e2c96b920a"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="productviewcounter.xml" hash="093683ca896f95bac2e4627b7f695f35"/></dir><dir name="template"><dir name="productviewcounter"><file name="productviewcounter.phtml" hash="047f83f928543170de19d92db9eac99b"/></dir></dir></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir><dir name="css"><dir name="productviewcounter"><file name="productviewcounter.css" hash="9e63cb418db292de299fecf4840871ef"/></dir></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.0.0</min><max>5.6.2</max></php></required></dependencies>
+</package>
